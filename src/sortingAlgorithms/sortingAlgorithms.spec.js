@@ -1,19 +1,17 @@
 const { expect } = require("chai");
-// const { mergeSort, quickSort, heapSort, bubbleSort } = './sortingAlgorithms.js';
-const { mergeSort } = '../sortingAlgorithms/sortingAlgorithms.js';
+const { getMergeSortAnimations, quickSort, heapSort, bubbleSort } = require('../sortingAlgorithms/sortingAlgorithms.js');
 
-console.log(mergeSort)
 describe("Merge Sort", () => {
   it("Returns an empty array when passed an empty array", () => {
-    expect(mergeSort([])).to.eql([]);
+    expect(getMergeSortAnimations([])).to.eql([]);
   });
   it("Returns a duplicate array when it is already sorted", () => {
-    expect(mergeSort([1, 2, 3, 4, 5])).to.eql([1, 2, 3, 4, 5]);
+    expect(getMergeSortAnimations([1, 2, 3, 4, 5])).to.eql([1, 2, 3, 4, 5]);
   });
   it("Returns a sorted array when passed a mixed up array", () => {
-    expect(mergeSort([1, 2, 5, 4, 3])).to.eql([1, 2, 3, 4, 5,]);
-    expect(mergeSort([12, 43, 22, 1])).to.eql([1, 12, 22, 43]);
-    expect(mergeSort([1, 2, 33, 45, 6, 10, 4, 100, 54])).to.eql([1, 2, 4, 6, 10, 33, 45, 54, 100]);
+    expect(getMergeSortAnimations([1, 2, 5, 4, 3])).to.eql([1, 2, 5, 4, 3].sort((a, b) => a - b));
+    expect(getMergeSortAnimations([12, 43, 22, 1])).to.eql([12, 43, 22, 1].sort((a, b) => a - b));
+    expect(getMergeSortAnimations([1, 2, 33, 45, 6, 10, 4, 100, 54])).to.eql([1, 2, 33, 45, 6, 10, 4, 100, 54].sort((a, b) => a - b));
   });
 });
 
