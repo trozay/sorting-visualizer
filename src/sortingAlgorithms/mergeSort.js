@@ -1,4 +1,4 @@
-const getMergeSortAnimations = (array) => {
+export function getMergeSortAnimations(array) {
   const animations = [];
   if (array.length <= 1) return array;
   const auxiliaryArray = array.slice();
@@ -6,13 +6,13 @@ const getMergeSortAnimations = (array) => {
   return animations;
 }
 
-const mergeSortHelper = (
+function mergeSortHelper(
   mainArray,
   startIdx,
   endIdx,
   auxiliaryArray,
   animations,
-) => {
+) {
   if (startIdx === endIdx) return;
   const middleIdx = Math.floor((startIdx + endIdx) / 2);
   mergeSortHelper(auxiliaryArray, startIdx, middleIdx, mainArray, animations);
@@ -20,14 +20,14 @@ const mergeSortHelper = (
   doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations);
 }
 
-const doMerge = (
+function doMerge(
   mainArray,
   startIdx,
   middleIdx,
   endIdx,
   auxiliaryArray,
   animations,
-) => {
+) {
   let k = startIdx;
   let i = startIdx;
   let j = middleIdx + 1;
@@ -75,16 +75,3 @@ const doMerge = (
     mainArray[k++] = auxiliaryArray[j++];
   }
 }
-const quickSort = arr => {
-
-};
-
-const heapSort = arr => {
-
-};
-
-const bubbleSort = arr => {
-
-};
-
-module.exports = { getMergeSortAnimations };
